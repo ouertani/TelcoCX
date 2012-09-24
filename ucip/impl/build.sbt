@@ -12,10 +12,6 @@ scalaVersion := "2.9.2"
 
 crossScalaVersions := Seq("2.9.1", "2.9.2")
 
-
-
-
-
 resolvers += "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/.m2/repository"
  
 
@@ -25,7 +21,7 @@ libraryDependencies += "me.ouertani.sjca" %% "ucip.api" % "1.0"
 
 libraryDependencies += "org.apache.httpcomponents" % "httpclient" % "4.1" % "provided"
 
-libraryDependencies +="org.apache.httpcomponents" % "httpmime" % "4.1"
+libraryDependencies +="org.apache.httpcomponents" % "httpmime" % "4.1" % "provided"
 
 seq(assemblySettings: _*)
 

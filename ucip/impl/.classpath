@@ -6,6 +6,11 @@
   <classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"></classpathentry>
   <classpathentry path="/home/slim/.ivy2/local/me.ouertani.sjca/ucip.api_2.9.2/1.0/jars/ucip.api_2.9.2.jar" kind="lib"></classpathentry>
   <classpathentry path="/home/slim/.ivy2/cache/javax/javaee-api/jars/javaee-api-6.0.jar" kind="lib"></classpathentry>
+  <classpathentry path="/home/slim/.ivy2/cache/org.apache.httpcomponents/httpclient/jars/httpclient-4.1.jar" kind="lib"></classpathentry>
+  <classpathentry path="/home/slim/.ivy2/cache/org.apache.httpcomponents/httpcore/jars/httpcore-4.1.jar" kind="lib"></classpathentry>
+  <classpathentry path="/home/slim/.ivy2/cache/commons-logging/commons-logging/jars/commons-logging-1.1.1.jar" kind="lib"></classpathentry>
+  <classpathentry path="/home/slim/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.4.jar" kind="lib"></classpathentry>
+  <classpathentry path="/home/slim/.ivy2/cache/org.apache.httpcomponents/httpmime/jars/httpmime-4.1.jar" kind="lib"></classpathentry>
   <classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"></classpathentry>
   <classpathentry path="bin" kind="output"></classpathentry>
 </classpath>
