@@ -14,9 +14,5 @@ trait AirConnector {
  * @author slim ouertani
  */
 trait AirConnectorFactory extends Serializable with Referenceable{
-  def getAirConnector(airParam : AirParameters) : AirConnector  
+  def getAirConnector(ip:String,port:Int=10010,user:String,pwd:String,agent:String,url:String) : AirConnector  
 }
-/**
- * @author slim ouertani
- */
-case class AirParameters(ip:String,port:Int,user:String,pwd:String,agent:String,url:String)
