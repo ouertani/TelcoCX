@@ -1,4 +1,4 @@
-package sjca.ucip.spi
+package telcoCx.ucip.spi
 package air.outbound
 
 import scala.reflect.BeanProperty
@@ -8,8 +8,10 @@ import scala.collection.JavaConversions._
 import javax.resource.ResourceException;
 import javax.resource.spi.{ConnectionManager , ConnectionRequestInfo , ManagedConnection ,ManagedConnectionFactory }
 import javax.security.auth.Subject;
-
-class GenericManagedConnectionFactory(@BeanProperty var logWriter:PrintWriter) extends ManagedConnectionFactory with Serializable {
+/**
+ * @author slim ouertani
+ */
+case class GenericManagedConnectionFactory(@BeanProperty var logWriter:PrintWriter) extends ManagedConnectionFactory  {
  def this()  {this (new PrintWriter(System.out))}
  def createConnectionFactory(cxManager: ConnectionManager)=   new AirConnectionFactory(this, cxManager)
  def createConnectionFactory() = new AirConnectionFactory(this, null)

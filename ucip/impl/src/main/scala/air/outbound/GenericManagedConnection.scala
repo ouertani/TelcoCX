@@ -1,12 +1,14 @@
-package sjca.ucip.spi
+package telcoCx.ucip.spi
 package air.outbound
 import java.io.PrintWriter
 import javax.resource.spi.{ ConnectionEventListener, ConnectionRequestInfo, LocalTransaction, ManagedConnection, ManagedConnectionFactory, ManagedConnectionMetaData }
 import javax.transaction.xa.XAResource
 import javax.security.auth.Subject
 import scala.reflect.BeanProperty
-
-class GenericManagedConnection(
+/**
+ * @author slim ouertani
+ */
+case class GenericManagedConnection(
   @BeanProperty var logWriter: PrintWriter,
   @BeanProperty var mcf: ManagedConnectionFactory,
   @BeanProperty var connectionRequestInfo: ConnectionRequestInfo,
