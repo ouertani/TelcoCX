@@ -1,6 +1,6 @@
 package telcoCx.ucip.spi
 package air.outbound
-
+ import scala.util.control.Exception._
 import telcoCx.ucip.api.air.outbound.AirConnector
 import javax.resource.spi.{ConnectionRequestInfo , ManagedConnection }
 import javax.resource.NotSupportedException
@@ -18,8 +18,9 @@ case class AirCx(mc : ManagedConnection,cri :ConnectionRequestInfo)  extends  Ai
   
  def fire(elem : Elem) : Option[Elem] = cri.buildClient.execute(buildPoster(elem))
   
+
  private implicit def toElem(hr : HttpResponse): Option[Elem] = {
-    Option(hr).map(_.getEntity()).map(EntityUtils.toString(_)).map(XML.loadString(_))
+    catching(classOf[Throwable]).opt( Option(hr).map(_.getEntity()).map(EntityUtils.toString(_)).map(XML.loadString(_)).get)
  }
  
  private implicit def toAirCxRequestInfo(cxRI : ConnectionRequestInfo):AirCxRequestInfo=  cxRI match {
@@ -29,9 +30,9 @@ case class AirCx(mc : ManagedConnection,cri :ConnectionRequestInfo)  extends  Ai
  
  private def buildPoster(elem : Elem) = {
   
-    val httppost = new HttpPost(cri.url);
-    httppost.addHeader("Content-Type", "text/xml");
-    httppost.addHeader("Content-Disposition", "form-data; name=\"fname\"; filename=\"request.xml\"");
+    val httppost = new HttpPost(cri.url)
+    httppost.addHeader("Content-Type", "text/xml")
+    httppost.addHeader("Content-Disposition", "form-data; name=\"fname\"; filename=\"request.xml\"")
 
 
     val comment = new StringBody(""+elem)

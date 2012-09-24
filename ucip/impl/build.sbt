@@ -17,7 +17,7 @@ resolvers += "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/
 
 libraryDependencies += "javax" % "javaee-api" % "6.0" % "provided"
 
-libraryDependencies += "me.ouertani.sjca" %% "ucip.api" % "1.0" 
+libraryDependencies += "me.ouertani.sjca" %% "ucip.api" % "1.0" % "provided"
 
 libraryDependencies += "org.apache.httpcomponents" % "httpclient" % "4.1" % "provided"
 

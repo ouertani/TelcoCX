@@ -11,8 +11,9 @@ import javax.security.auth.Subject;
 /**
  * @author slim ouertani
  */
-case class GenericManagedCxFactory(@BeanProperty var logWriter:PrintWriter) extends ManagedConnectionFactory  {
- def this()  {this (new PrintWriter(System.out))}
+case class GenericManagedCxFactory() extends ManagedConnectionFactory  {
+ @BeanProperty var logWriter:PrintWriter = new PrintWriter(System.out)
+ 
  def createConnectionFactory(cxManager: ConnectionManager)=    AirCxFactory(this, cxManager)
  def createConnectionFactory() = AirCxFactory(this, null)
  def createManagedConnection( subject:Subject,  cxRequestInfo:ConnectionRequestInfo)= GenericManagedCx(logWriter, this, cxRequestInfo)

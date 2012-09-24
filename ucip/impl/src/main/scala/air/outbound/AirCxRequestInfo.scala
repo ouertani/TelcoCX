@@ -10,7 +10,7 @@ import org.apache.http.auth.UsernamePasswordCredentials
  */
 case class AirCxRequestInfo(
   ip: String,
-  port: Int = 10010,
+  port: Int,
   user: String,
   pwd: String,
   agent: String,
