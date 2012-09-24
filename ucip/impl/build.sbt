@@ -23,6 +23,10 @@ libraryDependencies += "javax" % "javaee-api" % "6.0" % "provided"
 
 libraryDependencies += "me.ouertani.sjca" %% "ucip.api" % "1.0" 
 
+libraryDependencies += "org.apache.httpcomponents" % "httpclient" % "4.1" % "provided"
+
+libraryDependencies +="org.apache.httpcomponents" % "httpmime" % "4.1"
+
 seq(assemblySettings: _*)
 
 assembleArtifact in packageScala := false

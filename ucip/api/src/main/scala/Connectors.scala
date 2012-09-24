@@ -8,7 +8,7 @@ import javax.resource.Referenceable
  * @author slim ouertani
  */
 trait AirConnector {
-   def fire(elem : Elem) : Elem
+   def fire(elem : Elem) : Option[Elem]
 }
 /**
  * @author slim ouertani
