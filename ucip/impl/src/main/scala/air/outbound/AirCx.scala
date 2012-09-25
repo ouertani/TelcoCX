@@ -16,8 +16,9 @@ import org.apache.http.util.EntityUtils
  */
 case class AirCx(mc : ManagedConnection,cri :ConnectionRequestInfo)  extends  AirConnector{
   
- def fire(elem : Elem) : Option[Elem] = cri.buildClient.execute(buildPoster(elem))
+ def firec(elem : Elem) : Option[Elem] = cri.buildClient.execute(buildPoster(elem))
   
+ def fire(elem : Elem) : Option[Elem] = Some(<a></a>)
 
  private implicit def toElem(hr : HttpResponse): Option[Elem] = {
     catching(classOf[Throwable]).opt( Option(hr).map(_.getEntity()).map(EntityUtils.toString(_)).map(XML.loadString(_)).get)

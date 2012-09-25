@@ -5,12 +5,17 @@ import scala.reflect.BeanProperty
 import java.io.PrintWriter
 import java.util.{Set => JSet}
 import scala.collection.JavaConversions._
-import javax.resource.ResourceException;
-import javax.resource.spi.{ConnectionManager , ConnectionRequestInfo , ManagedConnection ,ManagedConnectionFactory }
-import javax.security.auth.Subject;
+import javax.resource.ResourceException 
+import javax.resource.spi.{ConnectionManager , ConnectionRequestInfo , ManagedConnection ,ManagedConnectionFactory, ConnectionDefinition }
+import javax.security.auth.Subject 
+import telcoCx.ucip.api.air.outbound._
 /**
  * @author slim ouertani
  */
+@ConnectionDefinition(connectionFactory = classOf[AirConnectorFactory],
+   connectionFactoryImpl = classOf[AirCxFactory],
+   connection = classOf[AirConnector],
+   connectionImpl = classOf[AirCx])
 case class GenericManagedCxFactory() extends ManagedConnectionFactory  {
  @BeanProperty var logWriter:PrintWriter = new PrintWriter(System.out)
  
