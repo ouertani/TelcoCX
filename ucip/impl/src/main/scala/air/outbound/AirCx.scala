@@ -18,7 +18,7 @@ case class AirCx(mc : ManagedConnection,cri :ConnectionRequestInfo)  extends  Ai
   
  def firec(elem : Elem) : Option[Elem] = cri.buildClient.execute(buildPoster(elem))
   
- def fire(elem : Elem) : Option[Elem] = Some(<a></a>)
+ def fire(elem : Elem) : Option[Elem] = Some(<a>{cri.ip}</a>)
 
  private implicit def toElem(hr : HttpResponse): Option[Elem] = {
     catching(classOf[Throwable]).opt( Option(hr).map(_.getEntity()).map(EntityUtils.toString(_)).map(XML.loadString(_)).get)
@@ -31,7 +31,8 @@ case class AirCx(mc : ManagedConnection,cri :ConnectionRequestInfo)  extends  Ai
  
  private def buildPoster(elem : Elem) = {
   
-    val httppost = new HttpPost(cri.url)
+    val url = "http://" + cri.ip + "/Air"
+    val httppost = new HttpPost(url)
     httppost.addHeader("Content-Type", "text/xml")
     httppost.addHeader("Content-Disposition", "form-data; name=\"fname\"; filename=\"request.xml\"")
 

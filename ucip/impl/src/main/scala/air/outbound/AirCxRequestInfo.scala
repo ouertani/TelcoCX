@@ -13,8 +13,8 @@ case class AirCxRequestInfo(
   port: Int,
   user: String,
   pwd: String,
-  agent: String,
-  url: String)
+  agent: String
+  )
   extends ConnectionRequestInfo {
 
   def buildClient = {

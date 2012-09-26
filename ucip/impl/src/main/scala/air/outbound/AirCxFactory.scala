@@ -11,9 +11,9 @@ import javax.resource.ResourceException
  */
 case class AirCxFactory(mcf: ManagedConnectionFactory, cm:ConnectionManager)  extends AirConnectorFactory {
   @BeanProperty var reference:Reference = _ 
-  def getAirConnector(ip:String,port:Int,user:String,pwd:String,agent:String,url:String) : AirConnector  = {
-   
-   cm.allocateConnection(mcf,  AirCxRequestInfo(ip ,port ,user ,pwd ,agent ,url )).asInstanceOf[AirConnector]
+  def getAirConnector(ip:String,port:Int,user:String,pwd:String,agent:String) : AirConnector  = {   
+   cm.allocateConnection(mcf,  AirCxRequestInfo(ip ,port ,user ,pwd ,agent  )).asInstanceOf[AirConnector]
   }
  
+  def apply() :AirConnector = cm.allocateConnection(mcf,  null).asInstanceOf[AirConnector]
 }

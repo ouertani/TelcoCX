@@ -7,6 +7,13 @@ import javax.resource.Referenceable
 /**
  * @author slim ouertani
  */
-trait AirConnectorFactory extends Referenceable  {
-  def getAirConnector(ip:String,port:Int,user:String,pwd:String,agent:String,url:String) : AirConnector  
+trait AirConnectorFactory extends Referenceable with Function0[AirConnector] {
+  def getAirConnector(
+      ip :String,
+      port:Int,
+      user:String,
+      pwd:String,
+      agent:String) : AirConnector  
+     
+      
 }
