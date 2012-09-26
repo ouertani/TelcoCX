@@ -26,7 +26,7 @@ case class AirCx(mc : ManagedConnection,cri :ConnectionRequestInfo)  extends  Ai
  
  private implicit def toAirCxRequestInfo(cxRI : ConnectionRequestInfo):AirCxRequestInfo=  cxRI match {
    case cx:AirCxRequestInfo => cx
-   case _ => throw new NotSupportedException()
+   case _ =>  throw new NotSupportedException("Requested parameters not complet")
  }
  
  private def buildPoster(elem : Elem) = {
