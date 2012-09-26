@@ -17,8 +17,9 @@ case class AirCxFactory(mcf: ManagedConnectionFactory, cm:ConnectionManager)  ex
  
   def apply() :AirConnector = cm.allocateConnection(mcf,  toAirCxRequestInfo).asInstanceOf[AirConnector]
   
-  private def toAirCxRequestInfo  ={
+  private def toAirCxRequestInfo  = {
     val amcf= mcf.asInstanceOf[AirManagedCxFactory]
     AirCxRequestInfo(amcf.ip ,amcf.port.toInt ,amcf.user ,amcf.pwd ,amcf.agent  )
   }
+  
 }
